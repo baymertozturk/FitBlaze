@@ -1,0 +1,118 @@
+.confirm-popover-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.confirm-popover {
+  position: absolute;
+  top: 0;
+  min-width: 300px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.30);
+  padding: 14px;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: confirm-pop-in 0.15s ease-out;
+}
+
+.confirm-popover-right {
+  left: calc(100% + 10px);
+}
+
+.confirm-popover-left {
+  right: calc(100% + 10px);
+}
+
+.confirm-popover-below {
+  top: calc(100% + 10px);
+  right: 0;
+}
+
+@keyframes confirm-pop-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.confirm-popover-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--color-danger);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.confirm-popover-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.confirm-popover-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.confirm-popover-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.confirm-popover-cancel,
+.confirm-popover-delete {
+  padding: 7px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+.confirm-popover-cancel {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.confirm-popover-cancel:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.confirm-popover-delete {
+  background: var(--color-danger);
+  color: #FFFFFF;
+  border: 1px solid var(--color-danger);
+}
+
+.confirm-popover-delete:hover {
+  background: #B91C1C;
+  border-color: #B91C1C;
+}
+
+/* Dar ekran: popover'ı butonun altında göster */
+@media (max-width: 900px) {
+  .confirm-popover-right,
+  .confirm-popover-left {
+    left: auto;
+    right: 0;
+    top: calc(100% + 10px);
+  }
+
+  .confirm-popover {
+    min-width: 260px;
+  }
+}
